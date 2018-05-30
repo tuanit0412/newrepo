@@ -1,0 +1,21 @@
+<% unless cart.line_items.empty? %>
+<link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
+<h2><%= t('.title') %></h2>
+<table class="w3-table-all">
+ <thead>
+      <tr class="w3-blue">
+        <th>Name product</th>
+        <th>Price</th>
+        <th>Quantity</th>
+      </tr>
+    </thead>
+<%= render(@cart.line_items) %>
+<tr class="total_line">
+<td colspan="2">Total</td>
+<td class="total_cell"><%= number_to_currency(@cart.total_price) %></td>
+</tr>
+</table>
+<%= button_to t('.checkout'), new_order_path, method: :get %>
+<%= button_to t('.empty'), cart, method: :delete,
+data: { confirm: 'Are you sure?' } %>
+<% end %>

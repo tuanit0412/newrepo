@@ -1,3 +1,4 @@
+
 <!DOCTYPE html>
 <html>
 <head>
@@ -5,6 +6,7 @@
 <%= stylesheet_link_tag"application", media: "all","data-turbolinks-track" => 'reload' %>
 <%= javascript_include_tag "application", "data-turbolinks-track" => 'reload' %>
 <%= csrf_meta_tags %>
+  <meta charset="utf-8">
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
@@ -17,16 +19,55 @@
 <nav class="navbar navbar-inverse">
   <div class="container-fluid">
     <div class="navbar-header">
-      <a class="navbar-brand" href="#">WebSiteName</a>
+      <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#myNavbar">
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>                        
+      </button>
+      <a class="navbar-brand" href="http://localhost:3000/en">VinhHome</a>
     </div>
-    <ul class="nav navbar-nav">
-      <li class="active"><a href="http://localhost:3000/">Home</a></li>
-      <li><a href="http://localhost:3000/products/new">New</a></li>
-      <li><a href="http://localhost:3000/products">Show</a></li>
-      <li><a href="#">Page 3</a></li>
-    </ul>
+    <div class="collapse navbar-collapse" id="myNavbar">
+      <ul class="nav navbar-nav">
+        <li class="active"><a href="http://localhost:3000/"><%= t('.home') %></a></li>
+        <li class="dropdown">
+          <a class="dropdown-toggle" data-toggle="dropdown" href="#"><%= t('.cart') %><span class="caret"></span></a>
+          <ul class="dropdown-menu">
+          <div id="cart">
+          <% if @cart %>
+            <%= hidden_div_if(@cart.line_items.empty?, id: 'cart') do %>
+            <%= render @cart %>
+            <% end %>
+          <% end %>
+          </div>
+          </ul>
+        </li>
+          <li class="dropdown">
+          <a class="dropdown-toggle" data-toggle="dropdown" href="#"><%= t('.admin') %> <span class="caret"></span></a>
+          <ul class="dropdown-menu">
+       <% if session[:user_id] %>
+        <ul>
+
+        <li><%= link_to 'Orders',orders_path%></li>
+        <li><%= link_to 'Products', products_path %></li>
+        <li><%= link_to 'Users',users_path%></li>
+        </ul>
+         <% end %>
+          </ul>
+        </li>
+      </ul>
+      <ul class="nav navbar-nav navbar-right">
+        <li><a href="http://localhost:3000/users/new"><span class="glyphicon glyphicon-user"></span> Sign Up</a></li>
+        
+        <% if session[:user_id] %>
+        <li><a ><span><%= button_to 'Logout', logout_path, method: :delete, :class =>'abc' %></span></a></li>
+        <% elsif%>
+        <li><a href="http://localhost:3000/login"><span class="glyphicon glyphicon-log-in"></span> Login</a></li>
+        <% end %>
+      </ul>
+    </div>
   </div>
 </nav>
+
 <div id="main">
 <%= yield %>
 </div>

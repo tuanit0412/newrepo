@@ -1,0 +1,14 @@
+<% if line_item == @current_item %>
+<tr id="current_item">
+<% else %>
+<tr>
+<% end %>
+
+
+<link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
+
+<tr>
+<td class="w3-hover-blue"><%= line_item.product.title %></td>
+<td class="w3-hover-blue"><%= line_item.product.price %></td>
+<td class="w3-hover-blue"><%= line_item.quantity %></td>
+</tr>
