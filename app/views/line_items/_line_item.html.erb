@@ -4,21 +4,15 @@
   <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
   <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
 
-<% if line_item == @current_item %>
-    <tr id="current_item">
-        <% else %>
+
         <table class="table table-hover">
-            <thead>
-                <tr>                               
-                    <th style="font-weight: bold">Quantity</th>
-                    <th style="font-weight: bold">Product</th>
-                    <th style="font-weight: bold">Price</th>
-                </tr>
-            </thead>
+            
             <tbody>
                        
-                            <tr>
-                                    <% end %>
+                    <% if line_item == @current_item %>
+                    <tr id="current_item">
+                        <% else %>
+                                    
                                 <td>
                                     <%= line_item.quantity %>&times;
                                 </td>
@@ -28,7 +22,7 @@
                                 <td>
                                     <%= number_to_currency(line_item.total_price, precision: 0, unit: "VND", separator: ",", format: "%n %u") %>
                                 </td>
-                                
+                                <% end %>
                             </tr>
             </tbody>
         
