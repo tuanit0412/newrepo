@@ -76,9 +76,9 @@ License URL: http://creativecommons.org/licenses/by/3.0/
 	</script>
 </head>
 <body>
-								<!--chat box-->
-								<script src="https://uhchat.net/code.php?f=da635f"></script>
-								<!--chat box-->
+	<!--chat box-->
+	<script src="https://uhchat.net/code.php?f=da635f"></script>
+	<!--chat box-->
 	<div class="header-top">
 		<div class="wrap">
 			<div class="logo">
@@ -92,15 +92,14 @@ License URL: http://creativecommons.org/licenses/by/3.0/
 						<%= link_to "Our Store", store_index_path %>
 					</li>
 					<li>
-<% if current_user %>
-		 <%= link_to " logout", destroy_user_session_path, method: :delete %>
-			<%else%>
-				<%= link_to "Login", new_user_session_path %>
-					<%end%>
+						<% if current_user %>
+		 					<%= link_to " logout", destroy_user_session_path, method: :delete %>
+						<%else%>
+							<%= link_to "Login", new_user_session_path %>
+						<%end%>
 					</li>
 				</ul>
 			</div>
-
 			<!--search-->
 			<ul class="icon2 sub-icon2 profile_img">
 				<li style="padding-top: 18px">
@@ -109,14 +108,12 @@ License URL: http://creativecommons.org/licenses/by/3.0/
 					<ul class="sub-icon2 list">
 						<li>
 							<a class="color12">
-	
 								<%= form_tag store_index_path, method: :get do %>
 									<%= text_field_tag "query", params[:query], placeholder: "Name" %>
-										<%= submit_tag "Search!", :class=>"btn-info" %>
-											<% end %>
+									<%= submit_tag "Search!", :class=>"btn-info" %>
+								<% end %>
 							</a>
 						</li>
-
 				</li>
 				</ul>
 				</li>
@@ -132,7 +129,7 @@ License URL: http://creativecommons.org/licenses/by/3.0/
 							<div id="cart">
 								<% if @cart %>
 									<%= render @cart %>
-										<% end %>
+								<% end %>
 							</div>
 						</li>
 
@@ -161,10 +158,10 @@ License URL: http://creativecommons.org/licenses/by/3.0/
 									<ul>
 										<li>
 											<% if @cart %>
-									<% @types.each do |type| %>
-										<%= link_to type.typename, producttype_path(type.typename) %>
-									<% end %>
-									<% end %>
+												<% @types.each do |type| %>
+													<%= link_to type.typename, producttype_path(type.typename) %>
+												<% end %>
+											<% end %>
 
 										</li>
 										
@@ -243,11 +240,9 @@ License URL: http://creativecommons.org/licenses/by/3.0/
 
 		</div>
 	</div>
-	<div class="clear"></div>
-	
+	<div class="clear"></div>	
 						<%= yield %>
 							<div class="clear"></div>
-
 							<div class="footer">
 								<div class="footer-top">
 									<div class="wrap">
@@ -280,13 +275,10 @@ License URL: http://creativecommons.org/licenses/by/3.0/
 										<div class="clear"></div>
 									</div>
 								</div>
-
-
 								<div class="clear"></div>
 							</div>
 							</div>
 							</div>
-
 							</div>
 							<script type="text/javascript">
 								$(document).ready(function () {
