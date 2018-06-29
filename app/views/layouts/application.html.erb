@@ -22,6 +22,7 @@ License URL: http://creativecommons.org/licenses/by/3.0/
 					<link href='http://fonts.googleapis.com/css?family=Open+Sans:400,300,600,700,800' rel='stylesheet' type='text/css'>
 					<script type="text/javascript" src="/assets/jquery.min.js"></script>
 					<script type="text/javascript">
+
 						$(document).ready(function () {
 							$(".dropdown img.flag").addClass("flagvisibility");
 
@@ -100,25 +101,27 @@ License URL: http://creativecommons.org/licenses/by/3.0/
 					</li>
 				</ul>
 			</div>
-			<!--search-->
-			<ul class="icon2 sub-icon2 profile_img">
-				<li style="padding-top: 18px">
-					<a class="active-icon c2" href="#">
-						<img src="/assets/find.png" /> </a>
-					<ul class="sub-icon2 list">
-						<li>
-							<a class="color12">
-								<%= form_tag store_index_path, method: :get do %>
-									<%= text_field_tag "query", params[:query], placeholder: "Name" %>
-									<%= submit_tag "Search!", :class=>"btn-info" %>
-								<% end %>
-							</a>
-						</li>
-				</li>
-				</ul>
-				</li>
-			</ul>
-			<!--end search-->
+						<!--search-->
+						<ul class="icon2 sub-icon2 profile_img">
+							<li style="padding-top: 10px">
+								<a class="active-icon c2" href="#">
+									<img src="/assets/find.png" /> </a>
+								<ul class="sub-icon2 list">
+									<li>
+										<a class="color12">
+				
+											<%= form_tag store_index_path, method: :get do %>
+												<%= text_field_tag "query", params[:query], placeholder: "Name" %>
+													<%= submit_tag "Search!" %>
+														<% end %>
+										</a>
+									</li>
+			
+							</li>
+							</ul>
+							</li>
+						</ul>
+						<!--end search-->
 <!--cart-->
 			<ul class="icon2 sub-icon2 profile_img">
 				<li style="padding-top: 18px">
