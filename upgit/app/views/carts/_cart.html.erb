@@ -73,6 +73,7 @@ License URL: http://creativecommons.org/licenses/by/3.0/
 			});
 		});
 	</script>
+
 </head>
 <body><div class="clear"></div>
 <% unless cart.line_items.empty? %>
@@ -89,14 +90,14 @@ License URL: http://creativecommons.org/licenses/by/3.0/
         <tr class="total_line">
             <td colspan="2">Total</td>
             <td class="total_cell">
-                <%= number_to_currency(cart.total_price, precision: 0, unit: "VND", separator: ",", format: "%n %u") %>
+                <%= number_to_currency(cart.total_price) %>
             </td>
         </tr>
     </table>
     <% end %>
     <div class="clear"></div>
 <%= button_to "Checkout", new_order_path, method: :get, :class => "btn-info" %>
-<%= button_to 'Empty cart', cart, method: :delete, data: { confirm: 'You are sure?' }, :class => "btn-danger" %>
+<%= button_to 'Empty cart', cart, method: :delete, :class => "btn-danger" %>
 
 <div class="clear"></div>
 

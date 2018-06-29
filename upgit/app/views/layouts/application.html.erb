@@ -111,8 +111,9 @@ License URL: http://creativecommons.org/licenses/by/3.0/
 				</ul>
 			</div>
 
+			<!--cart-->
 			<ul class="icon2 sub-icon2 profile_img">
-				<li style="padding-top: 10px">
+				<li style="padding-top: 18px">
 					<a class="active-icon c2" href="#">
 						<img src="/assets/cart.png" /> </a>
 					<ul class="sub-icon2 list">
@@ -120,7 +121,7 @@ License URL: http://creativecommons.org/licenses/by/3.0/
 							<div id="cart">
 								<% if @cart %>
 									<%= render @cart %>
-										<% end %>
+								<% end %>
 							</div>
 						</li>
 
@@ -128,6 +129,7 @@ License URL: http://creativecommons.org/licenses/by/3.0/
 				</ul>
 				</li>
 			</ul>
+			<!--end cart-->
 			<div class="clear"></div>
 		</div>
 	</div>
@@ -224,7 +226,7 @@ License URL: http://creativecommons.org/licenses/by/3.0/
 					</li>
 					<li>
 						<%if @cart%>
-							<%= link_to "BRANDS ", brands_path, :class=>"color4" %>
+							<%= link_to "TYPES ", brands_path, :class=>"color4" %>
 								<div class="megapanel">
 									<div class="row">
 										<div class="col1">

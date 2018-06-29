@@ -1,4 +1,6 @@
 class SizesController < ApplicationController
+  include CurrentCart
+  before_action :set_cart
   before_action :set_size, only: [:show, :edit, :update, :destroy]
 
   # GET /sizes
@@ -28,7 +30,7 @@ class SizesController < ApplicationController
 
     respond_to do |format|
       if @size.save
-        format.html { redirect_to @size, notice: 'Size was successfully created.' }
+        format.html { redirect_to @size, notice: "Size was successfully created." }
         format.json { render :show, status: :created, location: @size }
       else
         format.html { render :new }
@@ -42,7 +44,7 @@ class SizesController < ApplicationController
   def update
     respond_to do |format|
       if @size.update(size_params)
-        format.html { redirect_to @size, notice: 'Size was successfully updated.' }
+        format.html { redirect_to @size, notice: "Size was successfully updated." }
         format.json { render :show, status: :ok, location: @size }
       else
         format.html { render :edit }
@@ -56,19 +58,20 @@ class SizesController < ApplicationController
   def destroy
     @size.destroy
     respond_to do |format|
-      format.html { redirect_to sizes_url, notice: 'Size was successfully destroyed.' }
+      format.html { redirect_to sizes_url, notice: "Size was successfully destroyed." }
       format.json { head :no_content }
     end
   end
 
   private
-    # Use callbacks to share common setup or constraints between actions.
-    def set_size
-      @size = Size.find(params[:id])
-    end
 
-    # Never trust parameters from the scary internet, only allow the white list through.
-    def size_params
-      params.require(:size).permit(:sizeus, :sizevn)
-    end
+  # Use callbacks to share common setup or constraints between actions.
+  def set_size
+    @size = Size.find(params[:id])
+  end
+
+  # Never trust parameters from the scary internet, only allow the white list through.
+  def size_params
+    params.require(:size).permit(:sizeus, :sizevn)
+  end
 end
